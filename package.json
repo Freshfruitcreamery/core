@@ -1,0 +1,47 @@
+{
+  "name": "freshfruitcreamery_core",
+  "version": "1.0.0",
+  "description": "This is the freshfruitcreamery core service",
+  "main": "core-index.js",
+  "scripts": {
+    "start": "node core-index.js",
+    "dev": "nodemon core-index.js",
+    "migrate": "npx sequelize-cli db:migrate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odimarket/freshfruitcreamery_core.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/odimarket/freshfruitcreamery_core/issues"
+  },
+  "homepage": "https://github.com/odimarket/freshfruitcreamery_core#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.30.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "formidable": "^2.0.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "node-geocoder": "^4.1.0",
+    "node-mailer": "^0.1.1",
+    "nodemailer": "^6.7.5",
+    "otp-generator": "^4.0.0",
+    "request": "^2.88.2",
+    "sequelize": "^6.20.0",
+    "sequelize-cli": "^6.4.1",
+    "twilio": "^3.78.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
