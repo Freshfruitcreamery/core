@@ -16,8 +16,8 @@ module.exports = {
 
   // AUTH_SERVICE_URL: 'https://auth-freshfruitcreamy.herokuapp.com',
   // CORE_SERVICE_URL: 'https://core-freshfruitcreamery.herokuapp.com',
-  AUTH_SERVICE_URL: 'http://localhost:4005',
-  CORE_SERVICE_URL: 'http://localhost:4007',
+  AUTH_SERVICE_URL: 'http://localhost:4000',
+  CORE_SERVICE_URL: 'http://localhost:4001',
   PRODUCT_CODE_CORE: 'FFC',
   PRODUCT_CODE_MAIN: 'FFM',
   ENTITY_CODE_LENGTH: 5,
@@ -27,8 +27,9 @@ module.exports = {
   // User Types and their roles with scopes
   buyer: {
     role: 'BUYER',
-    key: 'BUYER',
-    client: 'http://localhost:3000/',
+    // key: 'BUYER',
+    key: 'freshfruit_main_client_secret',
+    client: 'freshfruit_main_client_secret',
   },
   admin: {
     role: 'ADMIN',

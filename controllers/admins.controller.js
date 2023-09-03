@@ -113,6 +113,7 @@ exports.loginAdmin = async (req, res) => {
           'gender',
           'zipcode',
         ],
+        raw: true,
       });
 
       res.json({

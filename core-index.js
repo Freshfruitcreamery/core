@@ -51,7 +51,7 @@ app.all('*', (req, res) => res.sendStatus(404));
 
 app.use((err, req, res, next) => console.log(err, req, res));
 
-const PORT = process.env.PORT || 4007;
+const PORT = process.env.PORT || 4001;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

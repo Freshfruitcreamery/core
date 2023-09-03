@@ -140,6 +140,7 @@ exports.viewAccount = async (req, res) => {
         ],
       }
     );
+    console.log(buyerDetails)
     return res.json({
       error: 0,
       data: { ...response.data, ...buyerDetails.toJSON() },
