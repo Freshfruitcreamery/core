@@ -7,6 +7,9 @@ const schema = Joi.object({
   first_name: Joi.string().required(),
   last_name: Joi.string().required(),
   // name: Joi.not().required(),
+  name: Joi.string()
+    .allow('')
+    .optional(),
   role: Joi.string().required(),
   email: Joi.string()
     .required()
