@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const morgan = require('morgan');
 
 const cloudinary = require('./utils/cloudinaryMediaProvider');
 
@@ -20,6 +21,8 @@ app.use(
     cookie: { secure: true },
   })
 );
+
+app.use(morgan('combined'));
 
 app.use(
   cors({

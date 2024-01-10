@@ -6,7 +6,7 @@ const { PRODUCT_CODE_CORE } = require('../config/sysConfig');
 const schema = Joi.object({
   first_name: Joi.string().required(),
   last_name: Joi.string().required(),
-  name: Joi.not().required(),
+  // name: Joi.not().required(),
   role: Joi.string().required(),
   email: Joi.string()
     .required()
