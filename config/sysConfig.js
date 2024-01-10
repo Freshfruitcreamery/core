@@ -14,10 +14,10 @@ module.exports = {
   PAYSTACK_SECRET_KEY: 'sk_test_dc21b4fb3e0b77c70a34d038a71c7538693fcf0f',
   PAYSTACK_PUBLIC_KEY: 'pk_test_a6bcb4a86877a435d650c4bc6699ab9b83bfa2d2',
 
-  // AUTH_SERVICE_URL: 'https://auth-freshfruitcreamy.herokuapp.com',
-  // CORE_SERVICE_URL: 'https://core-freshfruitcreamery.herokuapp.com',
-  AUTH_SERVICE_URL: 'http://localhost:4000',
-  CORE_SERVICE_URL: 'http://localhost:4001',
+  AUTH_SERVICE_URL: 'https://auth-production-fc37.up.railway.app',
+  CORE_SERVICE_URL: 'https://core-production-692e.up.railway.app',
+  // AUTH_SERVICE_URL: 'http://localhost:4000',
+  // CORE_SERVICE_URL: 'http://localhost:4001',
   PRODUCT_CODE_CORE: 'FFC',
   PRODUCT_CODE_MAIN: 'FFM',
   ENTITY_CODE_LENGTH: 5,
@@ -37,6 +37,6 @@ module.exports = {
   },
   assignedAdmin: {
     email: 'olaleyeemmanuel23@gmail.com',
-    url: 'http://localhost:3000/',
+    url: 'https://freshfruitcreamery.com/',
   },
 };
