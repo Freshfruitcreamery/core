@@ -7,9 +7,7 @@ const schema = Joi.object({
   first_name: Joi.string().required(),
   last_name: Joi.string().required(),
   // name: Joi.not().required(),
-  name: Joi.string()
-    .allow('')
-    .optional(),
+  name: Joi.string().allow('').optional(),
   role: Joi.string().required(),
   email: Joi.string()
     .required()
@@ -103,6 +101,12 @@ exports.isTokenProvided = async (req, res, next) => {
       msg: 'Validation error(s)',
     });
   }
+};
+
+exports.token = async (req, res, next) => {
+  // try {
+  req.token = req.params.token;
+  next();
 };
 
 /**
