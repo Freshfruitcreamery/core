@@ -23,6 +23,7 @@ exports.TermiiMailProvider = (data) => {
 
 exports.Mailer = async (template, data) => {
   let transporter = nodemailer.createTransport({
+    service: 'Gmail',
     host: process.env.MAILER_HOST,
     port: process.env.MAILER_PORT,
     secure: process.env.MAILER_SECURE, // true for 465, false for other ports
