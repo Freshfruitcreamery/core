@@ -6,6 +6,8 @@ const schema = Joi.object({
   type: Joi.string(),
   image: Joi.string().required(),
   parent_cat_id: Joi.string(),
+  child_cat_id: Joi.optional(),
+  sub_child_cat_id: Joi.optional(),
 });
 
 /**

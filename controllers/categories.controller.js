@@ -53,12 +53,23 @@ exports.createCategory = async (req, res) => {
 exports.viewCategories = async (req, res) => {
   const { status, type, cat } = req.query;
   let viewStatus = status === 'true' ? 1 : 0;
-  let typeStatus =
-    type !== undefined
-      ? { type }
-      : cat !== undefined
-      ? { parent_cat_id: cat }
-      : null;
+  let typeStatus = {};
+
+  if (type !== undefined) {
+    typeStatus.type = type;
+    if (cat !== undefined) {
+      if (type === 'sub2') {
+        typeStatus.child_cat_id = cat;
+      } else if (type === 'sub3') {
+        typeStatus.sub_child_cat_id = cat;
+      } else {
+        typeStatus.parent_cat_id = cat;
+      }
+    }
+  } else if (cat !== undefined) {
+    typeStatus.parent_cat_id = cat;
+  }
+
   try {
     const result = await Categories.findAll({
       where: { status: viewStatus, ...typeStatus },
@@ -69,6 +80,7 @@ exports.viewCategories = async (req, res) => {
       data: result,
     });
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       error: 1,
       msg: error,

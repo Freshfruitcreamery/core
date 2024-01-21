@@ -83,6 +83,7 @@ exports.viewItems = async (req, res) => {
     const result = await Items.findAll({
       include: [
         {
+          as: 'parent_cat',
           model: Categories,
         },
       ],

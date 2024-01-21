@@ -18,6 +18,27 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.STRING,
         },
       });
+      categories.hasMany(models.items, {
+        foreignKey: {
+          name: 'parent_cat_id',
+          type: DataTypes.STRING,
+        },
+        as: 'parent_cat',
+      });
+      categories.hasMany(models.items, {
+        foreignKey: {
+          name: 'grand_parent_id',
+          type: DataTypes.STRING,
+        },
+        as: 'grand_parent_cat',
+      });
+      categories.hasMany(models.items, {
+        foreignKey: {
+          name: 'great_grand_parent_id',
+          type: DataTypes.STRING,
+        },
+        as: 'great_grand_parent_cat',
+      });
     }
   }
   categories.init(
@@ -28,6 +49,8 @@ module.exports = (sequelize, DataTypes) => {
       status: DataTypes.BOOLEAN,
       image: DataTypes.STRING,
       parent_cat_id: DataTypes.STRING,
+      child_cat_id: DataTypes.STRING,
+      sub_child_cat_id: DataTypes.STRING,
     },
     {
       sequelize,

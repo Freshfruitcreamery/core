@@ -16,6 +16,15 @@ module.exports = {
       cat_id: {
         type: Sequelize.STRING,
       },
+      parent_cat_id: {
+        type: Sequelize.STRING,
+      },
+      grand_parent_id: {
+        type: Sequelize.STRING,
+      },
+      great_grand_parent_id: {
+        type: Sequelize.STRING,
+      },
       description: {
         type: Sequelize.TEXT,
       },

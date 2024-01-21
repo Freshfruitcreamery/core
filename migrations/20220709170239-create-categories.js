@@ -25,6 +25,12 @@ module.exports = {
       parent_cat_id: {
         type: Sequelize.STRING,
       },
+      child_cat_id: {
+        type: Sequelize.STRING,
+      },
+      sub_child_cat_id: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

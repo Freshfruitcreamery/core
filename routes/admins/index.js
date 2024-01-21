@@ -149,7 +149,7 @@ router.use(
 // Item routes
 router.use(
   '/item',
-  [adminsMiddleware.isTokenProvided, adminsMiddleware.authenticate],
+  // [adminsMiddleware.isTokenProvided, adminsMiddleware.authenticate],
   itemRoutes
 );
 
