@@ -52,7 +52,7 @@ exports.createItem = async (req, res) => {
  * @param {*} res
  */
 exports.viewItems = async (req, res) => {
-  const { status, cat, q, type } = req.query;
+  let { status, cat, q, type } = req.query;
   let viewStatus = status === 'true' ? 1 : 0;
   let catWhere =
     cat !== undefined && q !== undefined
@@ -79,23 +79,28 @@ exports.viewItems = async (req, res) => {
           ],
         }
       : null;
+
+  // type = Boolean(type) ? { type } : null;
+
   try {
     const result = await Items.findAll({
       include: [
         {
-          as: 'parent_cat',
+          // as: 'parent_cat',
           model: Categories,
         },
       ],
-      where: { type, status: viewStatus, ...catWhere },
+      where: { status: viewStatus, ...catWhere },
     });
-    res.status(200).json({
+
+    return res.status(200).json({
       error: 0,
       msg: 'Available items!',
       data: result,
     });
   } catch (error) {
-    res.status(400).json({
+    console.log(error);
+    return res.status(400).json({
       error: 1,
       msg: error,
     });
