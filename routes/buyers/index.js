@@ -27,6 +27,9 @@ const commentRoutes = require('./comment');
 // Import order routes
 const orderRoutes = require('./order');
 
+// Import categories collection routes
+const categoriesCollectionRoutes = require('./categories_collection');
+
 // signup buyer
 router.post(
   '/signup',
@@ -122,5 +125,8 @@ router.use(
   [buyersMiddleware.isTokenProvided, buyersMiddleware.authenticate],
   orderRoutes
 );
+
+// Categories collection routes
+router.use('/categories-collection', categoriesCollectionRoutes);
 
 module.exports = router;

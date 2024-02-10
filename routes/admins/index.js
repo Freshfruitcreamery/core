@@ -23,6 +23,9 @@ const blogRoutes = require('./blog');
 // import order route
 const orderRoutes = require('./order');
 
+// import categories collection route
+const categoriesCollectionRoutes = require('./categories_collection');
+
 // signup admin
 router.post(
   '/signup',
@@ -179,6 +182,13 @@ router.use(
   '/order',
   [adminsMiddleware.isTokenProvided, adminsMiddleware.authenticate],
   orderRoutes
+);
+
+// Categories collection routes
+router.use(
+  '/categories-collection',
+  [adminsMiddleware.isTokenProvided, adminsMiddleware.authenticate],
+  categoriesCollectionRoutes
 );
 
 module.exports = router;

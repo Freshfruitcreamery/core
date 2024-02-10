@@ -57,8 +57,16 @@ exports.viewItems = async (req, res) => {
   let catWhere =
     cat !== undefined && q !== undefined
       ? {
-          cat_id: cat,
           [Op.or]: [
+            {
+              cat_id: cat,
+            },
+            {
+              parent_cat_id: cat,
+            },
+            {
+              grand_parent_id: cat,
+            },
             { name: { [Op.like]: `%${q}%` } },
             {
               '$category.name$': { [Op.like]: `%${q}%` },
@@ -66,7 +74,19 @@ exports.viewItems = async (req, res) => {
           ],
         }
       : cat !== undefined
-      ? { cat_id: cat }
+      ? {
+          [Op.or]: [
+            {
+              cat_id: cat,
+            },
+            {
+              parent_cat_id: cat,
+            },
+            {
+              grand_parent_id: cat,
+            },
+          ],
+        }
       : q !== undefined
       ? {
           [Op.or]: [

@@ -39,6 +39,13 @@ module.exports = (sequelize, DataTypes) => {
         },
         as: 'great_grand_parent_cat',
       });
+      categories.hasOne(models.categories_collection, {
+        foreignKey: {
+          name: 'category_id',
+          type: DataTypes.STRING,
+        },
+        as: 'category',
+      });
     }
   }
   categories.init(
