@@ -140,10 +140,10 @@ exports.viewAccount = async (req, res) => {
         ],
       }
     );
-    console.log(buyerDetails)
+    const buyer_details = Boolean(buyerDetails) ? buyerDetails.toJSON() : null;
     return res.json({
       error: 0,
-      data: { ...response.data, ...buyerDetails.toJSON() },
+      data: { ...response.data, ...buyer_details },
     });
   }
 };

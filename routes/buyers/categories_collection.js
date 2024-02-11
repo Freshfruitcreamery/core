@@ -14,6 +14,12 @@ router.post(
 // view categories in collection
 router.get('/view', categoriesCollectionController.viewCategoriesCollection);
 
+// view categories in collection for clients
+router.get(
+  '/view/client',
+  categoriesCollectionController.viewCategoriesCollectionForClients
+);
+
 // view collection
 // router.get('/:collection_id/view', categoriesCollectionController.viewCollection);
 

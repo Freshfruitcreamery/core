@@ -77,6 +77,8 @@ exports.viewCategoriesCollection = async (req, res) => {
 exports.viewCategoriesCollectionForClients = async (req, res) => {
   try {
     const result = await CategoriesCollection.findAll({
+      where: { is_visible: true },
+      order: [['createdAt', 'ASC']],
       include: ['category'],
     });
     res.status(200).json({

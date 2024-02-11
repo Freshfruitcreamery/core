@@ -4,7 +4,7 @@ const schema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
   type: Joi.string(),
-  image: Joi.string().required(),
+  image: Joi.string().optional(),
   parent_cat_id: Joi.string(),
   child_cat_id: Joi.optional(),
   sub_child_cat_id: Joi.optional(),

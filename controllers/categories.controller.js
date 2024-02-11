@@ -10,8 +10,11 @@ const { Op } = require('sequelize');
  */
 exports.createCategory = async (req, res) => {
   try {
-    const { type } = req.body;
-    const result = await Categories.findOne({ where: { name: req.body.name } });
+    const { type, name, parent_cat_id, child_cat_id, sub_child_cat_id } =
+      req.body;
+    const result = await Categories.findOne({
+      where: { name, parent_cat_id, child_cat_id, sub_child_cat_id },
+    });
     if (result !== null) {
       res.status(400).json({
         error: 1,
