@@ -10,8 +10,12 @@ const { Op } = require('sequelize');
  */
 exports.createCategory = async (req, res) => {
   try {
-    const { type, name, parent_cat_id, child_cat_id, sub_child_cat_id } =
+    console.log(req.body);
+    let { type, name, parent_cat_id, child_cat_id, sub_child_cat_id } =
       req.body;
+    if (!sub_child_cat_id) {
+      sub_child_cat_id = null;
+    }
     const result = await Categories.findOne({
       where: { name, parent_cat_id, child_cat_id, sub_child_cat_id },
     });
@@ -41,6 +45,7 @@ exports.createCategory = async (req, res) => {
       }
     }
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       error: 1,
       msg: error,
@@ -76,6 +81,7 @@ exports.viewCategories = async (req, res) => {
   try {
     const result = await Categories.findAll({
       where: { status: viewStatus, ...typeStatus },
+      order: [['createdAt', 'ASC']],
     });
     res.status(200).json({
       error: 0,
