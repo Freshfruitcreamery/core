@@ -110,7 +110,7 @@ exports.viewItems = async (req, res) => {
           model: Categories,
         },
       ],
-      where: { status: viewStatus, ...catWhere },
+      where: { status: viewStatus, ...catWhere, type },
     });
 
     return res.status(200).json({
