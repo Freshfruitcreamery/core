@@ -66,9 +66,12 @@ const validateImage = (imageArr) => {
     return `Exceeded number of files. Expected maximum is ${maxNumberOfImages}.`;
 
   // Check if they are all images
-  const isValidFormat = imageArr.every((image) =>
-    validImageFormats.includes(image.originalFilename.split('.')[1])
-  );
+  const isValidFormat = imageArr.every((image) => {
+    const imgSplit = image.originalFilename.split('.');
+    return validImageFormats.includes(
+      image.originalFilename.split('.')[imgSplit.length - 1]
+    );
+  });
   if (!isValidFormat)
     return `Unsupported image format detected. Images must be in ${validImageFormats.join(
       ', '

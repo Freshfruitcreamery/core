@@ -7,8 +7,8 @@ const schema = Joi.object({
   price: Joi.number().required(),
   image1: Joi.string().required(),
   cat_id: Joi.optional(),
-  parent_cat_id: Joi.string().required(),
-  grand_parent_id: Joi.string().required(),
+  parent_cat_id: Joi.optional(),
+  grand_parent_id: Joi.optional(),
   great_grand_parent_id: Joi.string().required(),
 });
 
