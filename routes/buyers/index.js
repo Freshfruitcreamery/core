@@ -30,6 +30,9 @@ const orderRoutes = require('./order');
 // Import categories collection routes
 const categoriesCollectionRoutes = require('./categories_collection');
 
+// Import delivery location routes
+const deliveryLocationRoutes = require('./delivery_location');
+
 // signup buyer
 router.post(
   '/signup',
@@ -128,5 +131,8 @@ router.use(
 
 // Categories collection routes
 router.use('/categories-collection', categoriesCollectionRoutes);
+
+// Delivery location routes
+router.use('/delivery-location', deliveryLocationRoutes);
 
 module.exports = router;

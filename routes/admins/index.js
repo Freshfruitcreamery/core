@@ -26,6 +26,9 @@ const orderRoutes = require('./order');
 // import categories collection route
 const categoriesCollectionRoutes = require('./categories_collection');
 
+// import delivery location route
+const deliveryLocationRoutes = require('./delivery_location');
+
 // signup admin
 router.post(
   '/signup',
@@ -189,6 +192,13 @@ router.use(
   '/categories-collection',
   [adminsMiddleware.isTokenProvided, adminsMiddleware.authenticate],
   categoriesCollectionRoutes
+);
+
+// Delivery location routes
+router.use(
+  '/delivery-location',
+  [adminsMiddleware.isTokenProvided, adminsMiddleware.authenticate],
+  deliveryLocationRoutes
 );
 
 module.exports = router;
