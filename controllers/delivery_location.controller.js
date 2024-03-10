@@ -41,7 +41,12 @@ exports.createDeliveryLocation = async (req, res) => {
  */
 exports.viewDeliveryLocations = async (req, res) => {
   try {
-    const result = await DeliveryLocations.findAll();
+    const { area } = req.query;
+    let where = {};
+    if (area) {
+      where.area = area;
+    }
+    const result = await DeliveryLocations.findAll({ where });
 
     res.status(200).json({
       error: 0,
@@ -89,10 +94,15 @@ exports.viewDeliveryLocation = async (req, res) => {
  */
 exports.viewPublicDeliveryLocations = async (req, res) => {
   try {
+    const { area } = req.query;
+    const where = {
+      is_public: true,
+    };
+    if (area) {
+      where.area = area;
+    }
     const result = await DeliveryLocations.findAll({
-      where: {
-        is_public: true,
-      },
+      where,
     });
 
     res.status(200).json({
