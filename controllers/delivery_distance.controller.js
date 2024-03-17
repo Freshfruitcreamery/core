@@ -1,3 +1,5 @@
+const { Op } = require('sequelize');
+
 const DeliveryDistances = require('../models').delivery_distances;
 
 /**
@@ -8,13 +10,31 @@ const DeliveryDistances = require('../models').delivery_distances;
 exports.createDeliveryDistance = async (req, res) => {
   try {
     // Check distance from and to
-    const distance = await DeliveryDistances.findOne({
+    const distanceFrom = await DeliveryDistances.findOne({
       where: {
-        distance_from: req.body.distance_from,
-        distance_to: req.body.distance_to,
+        [Op.or]: [
+          {
+            distance_from: req.body.distance_from,
+          },
+          {
+            distance_from: req.body.distance_to,
+          },
+        ],
       },
     });
-    if (distance) {
+    const distanceTo = await DeliveryDistances.findOne({
+      where: {
+        [Op.or]: [
+          {
+            distance_to: req.body.distance_from,
+          },
+          {
+            distance_to: req.body.distance_to,
+          },
+        ],
+      },
+    });
+    if (distanceFrom || distanceTo) {
       return res.status(400).json({
         error: 1,
         msg: 'Distance exists!',
