@@ -5,16 +5,10 @@ const { areaTypes } = require('../utils/types');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('delivery_locations', {
+    await queryInterface.createTable('delivery_distances', {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING,
-      },
-      area: {
-        type: Sequelize.ENUM(areaTypes),
-      },
-      location: {
         type: Sequelize.STRING,
       },
       price: {
@@ -22,6 +16,12 @@ module.exports = {
       },
       is_public: {
         type: Sequelize.BOOLEAN,
+      },
+      distance_from: {
+        type: Sequelize.INTEGER,
+      },
+      distance_to: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('delivery_locations');
+    await queryInterface.dropTable('delivery_distances');
   },
 };

@@ -26,8 +26,8 @@ const orderRoutes = require('./order');
 // import categories collection route
 const categoriesCollectionRoutes = require('./categories_collection');
 
-// import delivery location route
-const deliveryLocationRoutes = require('./delivery_location');
+// import delivery distance route
+const deliveryDistanceRoutes = require('./delivery_distance');
 
 // signup admin
 router.post(
@@ -194,11 +194,11 @@ router.use(
   categoriesCollectionRoutes
 );
 
-// Delivery location routes
+// Delivery distance routes
 router.use(
-  '/delivery-location',
+  '/delivery-distance',
   [adminsMiddleware.isTokenProvided, adminsMiddleware.authenticate],
-  deliveryLocationRoutes
+  deliveryDistanceRoutes
 );
 
 module.exports = router;

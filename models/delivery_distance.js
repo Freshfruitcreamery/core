@@ -1,9 +1,8 @@
 'use strict';
 const { Model } = require('sequelize');
 const { randomVal } = require('../utils/custom');
-const { areaTypes } = require('../utils/types');
 module.exports = (sequelize, DataTypes) => {
-  class delivery_locations extends Model {
+  class delivery_distances extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  delivery_locations.init(
+  delivery_distances.init(
     {
-      location: DataTypes.STRING,
-      area: DataTypes.ENUM(areaTypes),
-      price: DataTypes.FLOAT,
+      distance_from: DataTypes.INTEGER,
+      distance_to: DataTypes.INTEGER,
+      charge: DataTypes.FLOAT,
       is_public: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
@@ -25,12 +24,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'delivery_locations',
+      modelName: 'delivery_distances',
     }
   );
 
-  delivery_locations.beforeCreate(
-    (delivery_location) => (delivery_location.id = randomVal(10))
+  delivery_distances.beforeCreate(
+    (delivery_distance) => (delivery_distance.id = randomVal(10))
   );
-  return delivery_locations;
+  return delivery_distances;
 };
