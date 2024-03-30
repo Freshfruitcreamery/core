@@ -43,6 +43,12 @@ module.exports = {
       about: {
         type: Sequelize.TEXT,
       },
+      longitude: {
+        type: Sequelize.STRING,
+      },
+      latitude: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

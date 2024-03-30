@@ -137,6 +137,9 @@ exports.viewAccount = async (req, res) => {
           'zipcode',
           'image',
           'about',
+          'longitude',
+          'latitude',
+          'zipcode',
         ],
       }
     );

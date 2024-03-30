@@ -25,8 +25,16 @@ exports.createOrder = async (req, res) => {
     let buyerResponse = await Buyers.findOne({
       where: { [Op.or]: [{ email }, { phone }] },
     });
+
+    if (!buyerResponse.address) {
+      return res.status(400).send({
+        error: 1,
+        msg: 'Address does not exist.',
+      });
+    }
+
     const buyerData = { ...buyerResponse.toJSON(), client };
-    console.log(buyerResponse);
+
     const response = await orderService.createAnOrder(req.body, buyerData);
 
     return res.status(201).json({
