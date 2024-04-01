@@ -27,6 +27,8 @@ module.exports = (sequelize, DataTypes) => {
       zipcode: DataTypes.STRING,
       image: DataTypes.STRING,
       about: DataTypes.TEXT,
+      longitude: DataTypes.STRING,
+      latitude: DataTypes.STRING,
     },
     {
       sequelize,

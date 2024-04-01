@@ -109,6 +109,8 @@ exports.loginAdmin = async (req, res) => {
           'country',
           'about',
           'address',
+          'latitude',
+          'longitude',
           'image',
           'gender',
           'zipcode',

@@ -5,55 +5,61 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       first_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       last_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       phone: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       gender: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       country: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       state: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       address: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       zipcode: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       image: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       about: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+      },
+      longitude: {
+        type: Sequelize.STRING,
+      },
+      latitude: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('admins');
-  }
+  },
 };
